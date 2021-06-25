@@ -44,3 +44,15 @@ aside ul {
 aside ul li {
   margin: 10px 0;
 }
+
+.sign-form {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-form input {
+  margin-bottom: 10px;
+}

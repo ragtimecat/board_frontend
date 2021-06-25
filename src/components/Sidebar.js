@@ -13,15 +13,20 @@ const Sidebar = () => {
       console.log(boards);
     }
     fetchBoards();
+    
+    console.log(boards);
   }, []);
 
   return(
     <div className="sidebar">
+      {boards.length > 0 ? (
       <ul>
         {boards.map(board => (
           <li key={board._id}><Link to={`/${board._id}`}>{board.name}</Link></li>
         ))}
-      </ul>
+      </ul>)
+      : (<p>No data</p>)}
+      
     </div>
   );
 }
