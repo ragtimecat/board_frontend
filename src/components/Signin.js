@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Signin = () => {
   const [login, setLogin] = useState('admin');
   const [password, setPassword] = useState('12345');
+
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +25,9 @@ const Signin = () => {
 
     const response = await result.json();
     console.log(response);
+    if(response.success) {
+      history.push('/admin-panel');
+    }
   }
 
   const onLoginChange = (e) => {
@@ -33,7 +39,7 @@ const Signin = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="sign-form">
+    <form onSubmit={handleSubmit} className="form">
       <label htmlFor="">Login</label>
       <input type="text" value={login} onChange={onLoginChange}/>
       <label htmlFor="">Password</label>

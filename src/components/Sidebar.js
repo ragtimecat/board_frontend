@@ -19,6 +19,7 @@ const Sidebar = () => {
 
   return(
     <div className="sidebar">
+      <Link to="/create-board">Create Board</Link>
       {boards.length > 0 ? (
       <ul>
         {boards.map(board => (

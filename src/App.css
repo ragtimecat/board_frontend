@@ -34,7 +34,7 @@ main {
 
 aside {
   padding: 10px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 aside ul {
@@ -45,7 +45,7 @@ aside ul li {
   margin: 10px 0;
 }
 
-.sign-form {
+.form {
   max-width: 400px;
   margin: auto;
   margin-top: 50px;
@@ -53,6 +53,6 @@ aside ul li {
   flex-direction: column;
 }
 
-.sign-form input {
+.form input {
   margin-bottom: 10px;
 }
