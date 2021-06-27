@@ -56,3 +56,19 @@ aside ul li {
 .form input {
   margin-bottom: 10px;
 }
+
+.thread {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.delete-symbol {
+  font-weight: bold;
+  color: red;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+button.delete-thread {
+  margin-left: 50px;
+}

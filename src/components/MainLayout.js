@@ -3,6 +3,7 @@ import About from './About';
 import NotFound from './NotFound';
 import Sidebar from './Sidebar';
 import Board from './Board';
+import Thread from './Thread';
 import { Switch, Route } from 'react-router-dom';
 
 //main user screen with boards and threads
@@ -18,6 +19,7 @@ const MainLayout = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/:board_id/:thread_id" component={Thread} />
             <Route exact path="/:board_id" component={Board} />
             <Route component={NotFound} />
           </Switch>
