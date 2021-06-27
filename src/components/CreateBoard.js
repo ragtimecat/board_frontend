@@ -25,7 +25,8 @@ const CreateBoard = () => {
       body: JSON.stringify({
         name,
         description
-      })
+      }),
+      credentials: 'include',
     })
     const response = await result.json();
     console.log(response);
