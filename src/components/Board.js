@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
 import ThreadPreview from './ThreadPreview';
 import { Link } from 'react-router-dom';
+import APIService from '../services/APIService';
 
 const Board = (params) => {
   const [board, setBoard] = useState({});
   const [threads, setThreads] = useState([]);
 
+  const apiService = new APIService();
+  const board_id = params.match.params.board_id;
+
   useEffect(() => {
     const fetchBoardInfo = async () => {
-      const results = await fetch(`http://localhost:5000/api/v1/boards/${params.match.params.board_id}`);
-      const boardInfo = await results.json();
+      const boardInfo = await apiService.getBoardById(board_id);
+      console.log(boardInfo);
       if (boardInfo.success) {
         setBoard(boardInfo.data);
-        const resultThreads = await fetch(`http://localhost:5000/api/v1/boards/${params.match.params.board_id}/threads`);
-        const threadsInfo = await resultThreads.json();
+        const threadsInfo = await apiService.getThreadsByBoardId(board_id);
         setThreads(threadsInfo.data);
       } else {
         setBoard({name: 'NotFound', description: 'There is no board'});

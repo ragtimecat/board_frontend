@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import APIService from "../services/APIService";
 
 const Sidebar = () => {
   const [boards, setBoards] = useState([]);
 
+  const apiService = new APIService();
+
   useEffect(() => {
     const fetchBoards = async () => {
-      const results = await fetch('http://localhost:5000/api/v1/boards');
-      const boards = await results.json();
+      const boards = await apiService.getBoards();
 
       setBoards(boards.data);
       console.log(boards);

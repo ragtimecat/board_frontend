@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import APIService from '../services/APIService';
 
 const ThreadPreview = ({ title, thread_id, board_id, onThreadDelete }) => {
   const [messages, setMessages] = useState([]);
 
+  const apiService = new APIService();
+
   useEffect(() => {
     const fetchMessages = async () => {
-      const result = await fetch(`http://localhost:5000/api/v1/threads/${thread_id}/messages`);
-      const response = await result.json();
-
-      setMessages(response.data);
+      const messages = await apiService.getMessagesByThreadId(thread_id);
+      setMessages(messages.data);
     }
     fetchMessages();
   }, []);
